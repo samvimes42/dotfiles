@@ -1,0 +1,27 @@
+[user]
+	email = christopher.e.henne@gm.com
+	name = Chris Henne
+[difftool "Meld"]
+	path = /usr/bin/meld
+	cmd = '/usr/bin/meld' $LOCAL $REMOTE
+[mergetool "Meld"]
+	path = /usr/bin/meld
+	cmd = '/usr/bin/meld' $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = false
+[mergetool "p4merge"]
+        cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+        trustExitCode = true
+[difftool "p4merge"]
+        cmd = p4merge "$LOCAL" "$REMOTE"
+[merge]
+	tool = p4merge
+[diff]
+        tool = p4merge
+[mergetool]
+	keepBackup = false
+        prompt = false
+        keepTemporaries = false
+[difftool]
+        prompt = false
+[push]
+	default = simple
