@@ -128,12 +128,12 @@ alias mci="mvn clean install"
 alias mr="mvn spring-boot:run"
 
 alias gf="git fetch"
-alias gp="git pull"
+# alias gp="git pull"
 alias gg="git gui"
 alias gco="git checkout" 
 alias gcot="git checkout -t" 
 alias gh='git log --pretty=format:"%C(auto)%h %ad | %s%d %C(red)[%an]" --graph --date=short'
-alias gstat="git status"
+alias glod='git pull origin develop'
 
 # custom fns
 cd() {
