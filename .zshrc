@@ -61,7 +61,7 @@ bindkey -v
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ubuntu fasd git tig httpie catimg docker encode64 git-flow mvn sudo systemd yarn dircycle zsh-syntax-highlighting zsh-history-substring-search 
+  ubuntu fasd cf git tig httpie catimg docker encode64 git-flow mvn sudo systemd yarn dircycle zsh-syntax-highlighting zsh-history-substring-search 
 )
 
 eval "$(fasd --init auto)"
@@ -134,6 +134,7 @@ alias gco="git checkout"
 alias gcot="git checkout -t" 
 alias gh='git log --pretty=format:"%C(auto)%h %ad | %s%d %C(red)[%an]" --graph --date=short'
 alias glod='git pull origin develop'
+# alias gsta='git stash push'
 
 # custom fns
 cd() {
