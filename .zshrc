@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/ggis/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -96,13 +96,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/localExports.sh
+#source ~/localExports.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export VISUAL="~/neovim/nvim.appimage"
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 export SQLCL_HOME=~/programs/sqlcl
@@ -115,8 +115,7 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '\e.' insert-last-word
 
-alias nvi="~/neovim/nvim.appimage"
-alias vi="nvi"
+alias vi="nvim"
 alias sr="source ~/.zshrc"
 alias er="vi ~/.zshrc"
 alias exr="vi ~/.Xresources"
@@ -128,7 +127,6 @@ alias mci="mvn clean install"
 alias mr="mvn spring-boot:run"
 
 alias gf="git fetch"
-# alias gp="git pull"
 alias gg="git gui"
 alias gco="git checkout" 
 alias gcot="git checkout -t" 
