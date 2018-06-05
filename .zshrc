@@ -121,10 +121,13 @@ alias er="vi ~/.zshrc"
 alias exr="vi ~/.Xresources"
 alias sxr="xrdb -merge ~/.Xresources"
 
+alias v='f -e vi'
+
 alias cdp="cd ~/projects/git\ projects/"
 
 alias mci="mvn clean install"
-alias mr="mvn spring-boot:run"
+alias mr="./run-service.sh"
+alias mrit"./run-integration-tests.sh"
 
 alias gf="git fetch"
 alias gg="git gui"
