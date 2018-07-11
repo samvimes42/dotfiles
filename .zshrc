@@ -120,14 +120,18 @@ alias sr="source ~/.zshrc"
 alias er="vi ~/.zshrc"
 alias exr="vi ~/.Xresources"
 alias sxr="xrdb -merge ~/.Xresources"
+alias rip="kill -9"
+alias rmrf="rm -rf"
+alias baleet="rmrf"
 
 alias v='f -e vi'
 
-alias cdp="cd ~/projects/git\ projects/"
+alias cdp="cd ~/projects/gitProjects/"
 
 alias mci="mvn clean install"
+alias mcii="mvn clean install -P BUILD"
 alias mr="./run-service.sh"
-alias mrit"./run-integration-tests.sh"
+alias mrit="./run-integration-tests.sh"
 
 alias gf="git fetch"
 alias gg="git gui"
