@@ -61,7 +61,7 @@ bindkey -v
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ubuntu fasd cf git tig httpie catimg docker encode64 git-flow mvn sudo systemd yarn dircycle zsh-syntax-highlighting zsh-history-substring-search 
+  ubuntu fasd cf git tig httpie catimg docker encode64 git-flow mvn sudo systemd yarn zsh-autosuggestions dircycle zsh-syntax-highlighting zsh-history-substring-search 
 )
 
 eval "$(fasd --init auto)"
