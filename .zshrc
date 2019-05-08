@@ -7,7 +7,30 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="mh"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="mh"
+DEFAULT_USER='cvc'
+POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status load ram)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline dir_writable os_icon)
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_HIDE_BRANCH_ICON=true
+POWERLEVEL9K_SHOW_CHANGESET=true
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=11
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='turquoise2'
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='grey19'
+POWERLEVEL9K_STATUS_OK_BACKGROUND='grey19'
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='grey19'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='steelblue1'
+POWERLEVEL9K_DIR_HOME_BACKGROUND='117'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='117'
+POWERLEVEL9K_OS_ICON_BACKGROUND='grey19'
+POWERLEVEL9K_OS_ICON_FOREGROUND='turquoise2'
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='229'
+POWERLEVEL9K_RAM_BACKGROUND='037'
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -21,7 +44,7 @@ ZSH_THEME="mh"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+ HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -39,7 +62,7 @@ ZSH_THEME="mh"
  ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -61,7 +84,7 @@ bindkey -v
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ubuntu fasd cf git tig httpie urltools extract catimg docker encode64 git-flow mvn sudo systemd yarn zsh-autosuggestions dircycle zsh-syntax-highlighting zsh-history-substring-search 
+  ubuntu fasd fzf cloudfoundry git tig httpie urltools extract catimg docker encode64 git-flow mvn sudo systemd yarn zsh-autosuggestions dircycle zsh-syntax-highlighting zsh-history-substring-search 
 )
 
 eval "$(fasd --init auto)"
@@ -97,6 +120,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/localExports.sh
+source $(dirname $(gem which colorls))/tab_complete.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -124,6 +148,8 @@ alias rip="kill -9"
 alias rmrf="rm -rf"
 alias baleet="rmrf"
 
+alias lc="colorls --sd -A"
+alias l="colorls --sd -lah"
 alias v='f -e vi'
 
 alias cdp="cd ~/projects/gitProjects/"
@@ -139,10 +165,17 @@ alias gco="git checkout"
 alias gcot="git checkout -t" 
 alias gh='git log --pretty=format:"%C(auto)%h %ad | %s%d %C(red)[%an]" --graph --date=short'
 alias glod='git pull origin develop'
-# alias gsta='git stash push'
+
+alias py="python3"
 
 # custom fns
 cd() {
     builtin cd "$@";
-    ls;
+    lc;
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/cvc/.sdkman"
+[[ -s "/home/cvc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/cvc/.sdkman/bin/sdkman-init.sh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
