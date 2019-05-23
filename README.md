@@ -13,4 +13,7 @@ Some apps used:
 - hack nerd font complete
 - powerlevel9k theme
 - fasd
+- glances
+- ncdu
+- tweaks
 - a couple of extra zsh plugins
