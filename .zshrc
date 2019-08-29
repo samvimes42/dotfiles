@@ -79,12 +79,14 @@ POWERLEVEL9K_RAM_BACKGROUND='037'
 
 bindkey -v
 
+ZSH_ALIAS_FINDER_AUTOMATIC=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ubuntu fasd fzf cloudfoundry git tig httpie urltools extract catimg docker encode64 git-flow mvn sudo systemd yarn zsh-autosuggestions dircycle zsh-syntax-highlighting zsh-history-substring-search 
+  ubuntu zsh_reload colored-man-pages thefuck ripgrep alias-finder command-not-found fasd fzf cloudfoundry git tig httpie urltools extract catimg docker encode64 git-flow mvn sudo systemd yarn kubectl zsh-autosuggestions dircycle zsh-syntax-highlighting zsh-history-substring-search 
 )
 
 eval "$(fasd --init auto)"
@@ -138,6 +140,7 @@ export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '\e.' insert-last-word
+bindkey '^ ' autosuggest-accept
 
 alias vi="nvim"
 alias sr="source ~/.zshrc"
@@ -148,8 +151,8 @@ alias rip="kill -9"
 alias rmrf="rm -rf"
 alias baleet="rmrf"
 
-alias lc="colorls --sd -A"
-alias l="colorls --sd -lah"
+alias l="colorls --sd -A"
+alias ll="colorls --sd -lAh"
 alias v='f -e vi'
 
 alias cdp="cd ~/projects/gitProjects/"
@@ -165,13 +168,30 @@ alias gco="git checkout"
 alias gcot="git checkout -t" 
 alias gh='git log --pretty=format:"%C(auto)%h %ad | %s%d %C(red)[%an]" --graph --date=short'
 alias glod='git pull origin develop'
+alias glom='git pull origin master'
 
 alias py="python3"
 
 # custom fns
 cd() {
     builtin cd "$@";
-    lc;
+    l;
+}
+
+kp() {
+### PROCESS
+# mnemonic: [K]ill [P]rocess
+# show output of "ps -ef", use [tab] to select one or multiple entries
+# press [enter] to kill selected processes and go back to the process list.
+# or press [escape] to go back to the process list. Press [escape] twice to exit completely.
+
+    local pid=$(ps -ef | sed 1d | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:process]'" | awk '{print $2}')
+
+    if [ "x$pid" != "x" ]
+    then
+      echo $pid | xargs kill -${1:-9}
+      kp
+    fi
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
