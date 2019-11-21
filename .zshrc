@@ -16,7 +16,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline dir_writable os_icon)
 # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_CHANGESET_HASH_LENGTH=11
@@ -149,11 +149,10 @@ alias exr="vi ~/.Xresources"
 alias sxr="xrdb -merge ~/.Xresources"
 alias rip="kill -9"
 alias rmrf="rm -rf"
-alias baleet="rmrf"
 
 alias l="colorls --sd -A"
 alias ll="colorls --sd -lAh"
-alias v='f -e vi'
+alias vo='f -e vi'
 
 alias cdp="cd ~/projects/gitProjects/"
 
@@ -176,6 +175,12 @@ alias py="python3"
 cd() {
     builtin cd "$@";
     l;
+}
+
+baleet() {
+    rm -rf "$@";
+    echo "Baleeted!";
+    colorls --sd -A
 }
 
 kp() {
