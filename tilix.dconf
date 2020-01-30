@@ -1,0 +1,73 @@
+[/]
+theme-variant='dark'
+
+[profiles/f99a7845-5a9f-43b3-9362-d1af3adb71bb]
+cursor-shape='block'
+cursor-colors-set=false
+bold-color-set=false
+terminal-bell='icon'
+scroll-on-keystroke=true
+cjk-utf8-ambiguous-width='narrow'
+default-size-rows=24
+encoding='UTF-8'
+triggers=@as []
+automatic-switch=@as []
+custom-command=''
+visible-name='henne'
+text-blink-mode='always'
+terminal-title='${id}: ${title}'
+use-theme-colors=false
+cell-height-scale=1.0
+badge-text=''
+exit-action='close'
+use-system-font=true
+backspace-binding='ascii-delete'
+rewrap-on-resize=true
+foreground-color='#BABDB6'
+login-shell=true
+background-transparency-percent=9
+cursor-blink-mode='system'
+dim-transparency-percent=0
+bold-is-bright=true
+cell-width-scale=1.0
+default-size-columns=80
+background-color='#1C1C1C'
+cursor-foreground-color='#ffffff'
+allow-bold=true
+palette=['#4C4C4C', '#BB0000', '#5FDE8F', '#D94710', '#276BD8', '#BB00BB', '#00DADF', '#BBBBBB', '#555555', '#FF5555', '#55FF55', '#FCAF3E', '#5555FF', '#FF55FF', '#55FFFF', '#FFFFFF']
+notify-silence-threshold=0
+badge-color='#ffffff'
+highlight-foreground-color='#ffffff'
+font='Monospace 12'
+delete-binding='delete-sequence'
+badge-position='northeast'
+custom-hyperlinks=@as []
+scrollback-unlimited=false
+cursor-background-color='#000000'
+highlight-background-color='#000000'
+scroll-on-output=false
+select-by-word-chars='-,./?%&#:_'
+use-custom-command=false
+badge-color-set=false
+bold-color='#ffffff'
+highlight-colors-set=false
+scrollback-lines=8192
+show-scrollbar=true
+
+[profiles]
+list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d', 'f99a7845-5a9f-43b3-9362-d1af3adb71bb']
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+foreground-color='#BABDB6'
+visible-name='Default'
+login-shell=true
+palette=['#4C4C4C', '#BB0000', '#5FDE8F', '#D94710', '#276BD8', '#BB00BB', '#00DADF', '#BBBBBB', '#555555', '#FF5555', '#55FF55', '#FCAF3E', '#5555FF', '#FF55FF', '#55FFFF', '#FFFFFF']
+badge-color-set=false
+cursor-colors-set=false
+highlight-colors-set=false
+use-theme-colors=false
+bold-color-set=false
+terminal-bell='icon'
+background-color='#1C1C1C'
+background-transparency-percent=9
+dim-transparency-percent=0
