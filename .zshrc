@@ -130,10 +130,12 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/localExports.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
+source <(kubectl completion zsh)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use --lts --silent
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
@@ -177,6 +179,8 @@ alias glod='git pull origin develop'
 alias glom='git pull origin master'
 
 alias py="python3"
+alias mctl="microk8s.kubectl"
+alias mkub="microk8s"
 
 # custom fns
 cd() {
@@ -194,7 +198,7 @@ kp() {
 ### PROCESS
 # mnemonic: [K]ill [P]rocess
 # show output of "ps -ef", use [tab] to select one or multiple entries
-# press [enter] to kill selected processes and go back to the process list.
+ press [enter] to kill selected processes and go back to the process list.
 # or press [escape] to go back to the process list. Press [escape] twice to exit completely.
 
     local pid=$(ps -ef | sed 1d | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:process]'" | awk '{print $2}')
@@ -207,10 +211,16 @@ kp() {
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/cvc/.sdkman"
-[[ -s "/home/cvc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/cvc/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/home/cvc/.sdkman"
+#[[ -s "/home/cvc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/cvc/.sdkman/bin/sdkman-init.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte-2.91.sh
+fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
