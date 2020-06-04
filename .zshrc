@@ -93,7 +93,7 @@ ZSH_ALIAS_FINDER_AUTOMATIC=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ubuntu zsh_reload colored-man-pages thefuck ripgrep alias-finder command-not-found fasd fzf cloudfoundry git tig httpie urltools extract catimg docker encode64 git-flow mvn sudo systemd yarn kubectl zsh-autosuggestions dircycle zsh-syntax-highlighting history-substring-search 
+  ubuntu zsh_reload colored-man-pages thefuck ripgrep alias-finder command-not-found fasd fzf cloudfoundry frontend-search git tig httpie urltools extract catimg docker encode64 git-flow mvn sudo systemd yarn kubectl zsh-autosuggestions dircycle zsh-syntax-highlighting history-substring-search 
 )
 
 eval "$(fasd --init auto)"
@@ -179,8 +179,12 @@ alias glod='git pull origin develop'
 alias glom='git pull origin master'
 
 alias py="python3"
-alias mctl="microk8s.kubectl"
-alias mkub="microk8s"
+
+alias use-kubeconfig-k3s="export KUBECONFIG=/etc/rancher/k3s/k3s.yaml"
+alias use-kubeconfig-ccms-cluster="export KUBECONFIG=~/.kube/config"
+
+alias ukl="use-kubeconfig-k3s"
+alias ukc="use-kubeconfig-ccms-cluster"
 
 # custom fns
 cd() {
